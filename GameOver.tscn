@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UITheme.tres" type="Theme" id=1]
+[ext_resource path="res://GameOver.gd" type="Script" id=2]
+
+[node name="GameOver" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+score = 2500
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 251.0
+margin_top = 451.0
+margin_right = 349.0
+margin_bottom = 529.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 98.0
+margin_bottom = 32.0
+size_flags_vertical = 3
+
+[node name="FinalScoreLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = " SCORE:"
+
+[node name="ScoreLabel" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 84.0
+margin_right = 98.0
+margin_bottom = 32.0
+theme = ExtResource( 1 )
+text = "0"
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 98.0
+margin_bottom = 78.0
+
+[node name="RetryButton" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer"]
+margin_left = 7.0
+margin_right = 91.0
+margin_bottom = 42.0
+theme = ExtResource( 1 )
+text = "RETRY"
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/RetryButton" to="." method="_on_RetryButton_pressed"]

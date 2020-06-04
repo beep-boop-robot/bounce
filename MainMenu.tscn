@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UITheme.tres" type="Theme" id=1]
+[ext_resource path="res://MainMenu.gd" type="Script" id=2]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 35.0
+margin_top = 258.0
+margin_right = 565.0
+margin_bottom = 721.0
+rect_min_size = Vector2( 200, 0 )
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 530.0
+margin_bottom = 417.0
+theme = ExtResource( 1 )
+text = "Use arrow keys to move
+
+Hit boxes with arrows to increase score
+
+Follow the arrows to increase score multiplyer
+
+Bouce off walls to boost speed
+
+Incorrect direction decreases multiplyer
+
+Avoid leaving the screen or hitting boxes with
+crosses"
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 421.0
+margin_right = 530.0
+margin_bottom = 463.0
+
+[node name="PlayButton" type="Button" parent="CenterContainer/VBoxContainer/CenterContainer"]
+margin_left = 230.0
+margin_right = 300.0
+margin_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 1 )
+text = "PLAY"
+[connection signal="pressed" from="CenterContainer/VBoxContainer/CenterContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
