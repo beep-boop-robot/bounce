@@ -17,7 +17,7 @@ func _ready():
 
 
 func _on_World_set_multiplyer(val):
-    $VBoxContainer/MultiplyerContainer/CurrentMultiplyer.text = str(val)
+    $VBoxContainer/MultiplyerContainer/CurrentMultiplyer.text = "%.1f" % val
 
 func _on_World_set_score(val):
     $VBoxContainer/ScoreContainer/CurrentScore.text = str(val)

@@ -18,7 +18,7 @@ var wall_position_b = Vector2(600, -100)
 var wall_flip = false
 
 var score = 0
-var multiplyer = 0
+var multiplyer = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,12 +42,14 @@ func _on_WallSpawner_created_wall(wall):
 
 func _on_Box_hit_correct():
     # todo increase score based on velocity magnitude?
+    $CollectSound.play()
     multiplyer += multiplyer_per_box
     score += score_per_box * multiplyer
     emit_signal("set_score", score)
     emit_signal("set_multiplyer", multiplyer)
     
 func _on_Box_hit_incorrect():    
+    $CollectSound.play()
     multiplyer -= multiplyer_per_box
     multiplyer = max(1, multiplyer)
     score += score_per_box * multiplyer
@@ -55,6 +57,7 @@ func _on_Box_hit_incorrect():
     emit_signal("set_multiplyer", multiplyer)
     
 func _on_Box_hit_invalid():  
+    $BadSound.play()
     _gameover()
 
 func _on_BoxSpawner_created_boxes(boxes):
@@ -70,6 +73,7 @@ func _on_BoxSpawner_created_boxes(boxes):
     add_child(move_to_bottom)
 
 func _on_Player_off_screen():
+    $BadSound.play()
     _gameover()
 
 func _on_ScrollSpeedTimer_timeout():

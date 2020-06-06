@@ -39,6 +39,7 @@ func _process(delta):
     var collision = move_and_collide(velocity)
     
     if collision:
+        $BounceSound.play()
         velocity = velocity.bounce(collision.normal) * bounce
 
 

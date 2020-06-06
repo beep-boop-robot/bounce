@@ -5,6 +5,7 @@ signal start()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+    $CenterContainer/VBoxContainer/CenterContainer/PlayButton.grab_focus()
     var view_size = get_viewport().size
     rect_size = Vector2(view_size.x, view_size.y)
 

@@ -29,6 +29,7 @@ func _run_game():
     add_child(ui)
     
 func _on_GameOver_retry():
+    $MainMenuSound.play()
     gos.queue_free()
     _run_game()
 
@@ -41,5 +42,6 @@ func _on_World_game_over(score):
     add_child(gos)
 
 func _on_MainMenu_start():
+    $MainMenuSound.play()
     $MainMenu.queue_free()
     _run_game()
